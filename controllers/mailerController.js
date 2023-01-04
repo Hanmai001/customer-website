@@ -28,7 +28,7 @@ let getMail = async (req, res, next) => {
                 return console.log('Error occurs', err);
             } else {
                 return req.flash('forgetMessage', 'Thành công')
-            
+
             }
         })
     next();
@@ -52,7 +52,7 @@ let getForgetEmail = async (req, res) => {
         from: "tranxuanquang79@gmail.com",
         to: mail,
         subject: "Test sendmail",
-        html: `<a href="http://localhost:3000/reset-password?iduser=${idUser.IDUSER}">cccc</a>`
+        html: `<a href="http://localhost:3000/reset-password?iduser=${idUser.IDUSER}">Link</a>`
     };
     //console.log(msg);
     nodemailer.createTransport({
@@ -78,9 +78,9 @@ let getForgetEmail = async (req, res) => {
 }
 
 let getResetPassword = async (req, res) => {
-    const {iduser: idUser} = req.query;
+    const { iduser: idUser } = req.query;
     console.log(idUser);
-    return res.render('reset-password.ejs', {idUser});
+    return res.render('reset-password.ejs', { idUser });
 }
 
 
